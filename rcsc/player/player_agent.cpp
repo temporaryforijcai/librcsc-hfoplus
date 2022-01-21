@@ -3100,6 +3100,27 @@ PlayerAgent::doDash( const double & power,
     return true;
 }
 
+bool
+PlayerAgent::doCatchPoint( )
+{
+    if ( world().self().isFrozen() )
+    {
+        dlog.addText( Logger::ACTION,
+                      __FILE__": agent->doCatchPoint. but in tackle expire period  %d",
+                      world().self().tackleExpires() );
+        // std::cerr << world().teamName() << ' '
+        //           << world().self().unum() << ": "
+        //           << world().time()
+        //           << " Now Tackle expire period" << std::endl;
+        return false;
+    }
+
+    elog.addText(Logger::ACTION, __FILE__": CatchPoint");
+    elog.flush();
+    M_effector.setCatchPoint( );
+    return true;
+}
+
 /*-------------------------------------------------------------------*/
 /*!
 

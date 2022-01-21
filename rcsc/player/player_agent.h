@@ -256,6 +256,12 @@ public:
                  const AngleDeg & rel_dir = 0.0 );
 
     /*!
+      \brief register catchpointcommand
+      \return true if successfully registered.
+    */
+    bool doCatchPoint(  );
+
+    /*!
       \brief register turn command
       \param moment command argument: turn moment
       \return true if successfully registered.

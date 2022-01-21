@@ -79,7 +79,8 @@ public:
         // synch_mode command
         DONE,
 
-        ILLEGAL
+        ILLEGAL,
+        CATCHPOINT
     };
 
 protected:
@@ -462,6 +463,44 @@ public:
       {
           return M_dir;
       }
+};
+
+
+class PlayerCatchPointCommand
+    : public PlayerBodyCommand {
+public:
+    /*!
+      \brief construct with dash power
+      \param power dash power
+      \param dir dash direction
+    */
+    PlayerCatchPointCommand( ){}
+
+    /*!
+      \brief get command type
+      \return command type Id
+    */
+    Type type() const
+      {
+          return CATCHPOINT;
+      }
+
+    /*!
+      \brief put command string to ostream
+      \param to reference to the output stream
+      \return reference to the output stream
+    */
+    std::ostream & toStr( std::ostream & to ) const;
+
+    /*!
+      \brief get command name
+      \return command name string
+    */
+    std::string name() const
+      {
+          return std::string( "catchpoint" );
+      }
+
 };
 
 //////////////////////////////////////////////////////////////////////

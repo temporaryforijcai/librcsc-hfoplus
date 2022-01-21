@@ -257,7 +257,7 @@ public:
       useless dash power is reduceed automatically.
     */
     void setDash( const double & power );
-
+    void setCatchPoint();
     /*!
       \brief create dash command and its effect with dash parameter
       \param power dash power for command argument

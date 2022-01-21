@@ -172,6 +172,13 @@ PlayerCatchCommand::toStr( std::ostream & to ) const
     return to << "(catch " << M_dir << ")";
 }
 
+std::ostream &
+PlayerCatchPointCommand::toStr( std::ostream & to ) const
+{
+    //return to << "(dash "<<0<<" "<<0<<")";
+    return to << "(catchpoint)";
+}
+
 /*-------------------------------------------------------------------*/
 /*!
 

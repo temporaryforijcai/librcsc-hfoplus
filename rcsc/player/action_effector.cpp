@@ -1067,6 +1067,26 @@ ActionEffector::setCatch()
 /*!
 
 */
+
+void
+ActionEffector::setCatchPoint()
+{
+    dlog.addText( Logger::ACTION,
+                  __FILE__" (setCatchPoint) register catch" );
+
+    dlog.addText( Logger::ACTION,
+                   __FILE__" (setCatchPoint) )"
+ );
+    //////////////////////////////////////////////////
+    // create command object
+    if ( M_command_body )
+    {
+        delete M_command_body;
+        M_command_body = static_cast< PlayerBodyCommand * >( 0 );
+    }
+    M_command_body = new PlayerCatchPointCommand();
+}
+
 void
 ActionEffector::setTackle( const double & power_or_dir,
                            const bool foul )
